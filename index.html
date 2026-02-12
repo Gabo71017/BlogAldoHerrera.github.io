@@ -6,7 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
 <style>
 html { scroll-behavior: smooth; }
@@ -18,7 +17,6 @@ body {
     color: #f1f5f9;
 }
 
-/* TOP BAR */
 .topbar {
     background:#0f172a;
     padding:10px 20px;
@@ -34,7 +32,6 @@ body {
     outline:none;
 }
 
-/* HERO */
 header {
     min-height: 100vh;
     background: radial-gradient(circle at top, #2563eb, #020617);
@@ -49,29 +46,17 @@ header {
     background: rgba(255,255,255,0.08);
     padding: 50px;
     border-radius: 20px;
-    box-shadow: 0 0 30px rgba(0,0,0,0.4);
     max-width:800px;
 }
 
-header h1 {
-    font-size: 3em;
-    color: #38bdf8;
-}
+header h1 { font-size: 3em; color: #38bdf8; }
 
-header img {
-    width:100%;
-    border-radius:15px;
-    margin-top:20px;
-}
-
-/* NAV */
 nav {
     position: sticky;
     top: 0;
     background: #020617;
     padding: 12px;
     text-align: center;
-    z-index: 1000;
 }
 
 nav a {
@@ -81,25 +66,6 @@ nav a {
     font-weight: bold;
 }
 
-nav a:hover { color: #facc15; }
-
-/* PROGRESS BAR */
-#progress-container {
-    width: 100%;
-    background: #1e293b;
-    height: 6px;
-    position: fixed;
-    top: 0;
-    z-index: 2000;
-}
-
-#progress-bar {
-    height: 6px;
-    background: linear-gradient(to right,#22d3ee,#a855f7);
-    width: 0%;
-}
-
-/* MAIN GRID */
 main {
     max-width: 1200px;
     margin: auto;
@@ -109,38 +75,23 @@ main {
     gap:40px;
 }
 
-/* SECTIONS */
 section {
     background: rgba(255,255,255,0.05);
     border-radius: 20px;
     padding: 30px;
     margin-bottom: 40px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.3);
 }
 
 h2 { color: #38bdf8; }
 h3 { color: #facc15; }
 
-/* CARDS */
-.cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-    gap: 20px;
-}
-
 .card {
     background: rgba(0,0,0,0.4);
     padding: 20px;
     border-radius: 15px;
-    transition: transform .3s, box-shadow .3s;
+    margin-bottom:20px;
 }
 
-.card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px #38bdf8;
-}
-
-/* SIDEBAR */
 aside {
     background: rgba(255,255,255,0.05);
     padding: 20px;
@@ -148,9 +99,6 @@ aside {
     height: fit-content;
 }
 
-aside ul { padding-left:20px; }
-
-/* BUTTON */
 button {
     background: linear-gradient(to right,#38bdf8,#a855f7);
     border: none;
@@ -162,32 +110,30 @@ button {
     color:white;
 }
 
-/* FOOTER */
+table {
+    width:100%;
+    border-collapse: collapse;
+    margin-top:20px;
+}
+
+td, th {
+    border:1px solid #334155;
+    padding:10px;
+}
+
 footer {
     background: black;
     text-align: center;
     padding: 30px;
 }
 
-/* DARK MODE */
-.dark {
-    background: black !important;
-}
-
-/* RESPONSIVE */
 @media(max-width:900px){
-    main{
-        grid-template-columns:1fr;
-    }
+    main{ grid-template-columns:1fr; }
 }
 </style>
 </head>
 
 <body>
-
-<div id="progress-container">
-<div id="progress-bar"></div>
-</div>
 
 <div class="topbar">
 <div style="font-weight:bold;color:#38bdf8;">📝 EduGame Blog</div>
@@ -197,25 +143,17 @@ footer {
 <header>
 <div class="hero-box">
 <h1>🎮 Gamificación y Educación</h1>
-<p>Una aventura pedagógica en la escuela del siglo XXI</p>
-<p>Explora cómo aprender puede convertirse en una misión épica</p>
-
-<p style="font-size:0.9em;opacity:0.8;">
-Publicado el 12 Febrero 2026 • ⏱ 8 min de lectura • ✍ Gabriel Mejía
-</p>
-
-<img src="https://images.unsplash.com/photo-1584697964403-4b17f6b5c9d5">
-
-<button onclick="document.getElementById('introduccion').scrollIntoView({behavior: 'smooth'});">
-Iniciar aventura 🚀
-</button>
+<p>Una transformación pedagógica para la escuela del siglo XXI</p>
+<p>Publicado el 12 Febrero 2026 • ⏱ 12 min de lectura • ✍ Gabriel Mejía</p>
 </div>
 </header>
 
 <nav>
 <a href="#introduccion">Introducción</a>
 <a href="#fundamentos">Fundamentos</a>
+<a href="#implementacion">Implementación</a>
 <a href="#experiencias">Experiencias</a>
+<a href="#retos">Retos</a>
 <a href="#conclusiones">Conclusiones</a>
 </nav>
 
@@ -225,62 +163,149 @@ Iniciar aventura 🚀
 
 <section id="introduccion">
 <h2>🌍 Introducción</h2>
-<p>La educación del siglo XXI enfrenta el desafío de captar la atención de estudiantes digitales. La gamificación surge como estrategia que transforma el aprendizaje en experiencia significativa.</p>
+
+<p>
+La educación contemporánea enfrenta una tensión evidente: mientras los estudiantes habitan entornos digitales interactivos, la escuela continúa utilizando metodologías tradicionales centradas en la transmisión de contenidos. Esta brecha genera desmotivación, desconexión y bajo compromiso académico.
+</p>
+
+<p>
+La gamificación emerge como una estrategia pedagógica innovadora que incorpora elementos propios del juego —misiones, niveles, recompensas simbólicas, retroalimentación inmediata y narrativa— con el propósito de fortalecer la motivación y el aprendizaje significativo.
+</p>
+
+<p>
+No se trata de jugar por jugar, sino de diseñar experiencias estructuradas que activen la motivación intrínseca y el compromiso cognitivo.
+</p>
 </section>
 
 <section id="fundamentos">
 <h2>🧠 Fundamentos pedagógicos</h2>
-<div class="cards">
+
+<h3>1️⃣ Aprendizaje Basado en Problemas (ABP)</h3>
+<p>
+La gamificación se articula con el ABP al plantear desafíos auténticos que requieren análisis, colaboración y toma de decisiones. El estudiante deja de ser receptor pasivo y asume un rol activo en la construcción del conocimiento.
+</p>
+
+<h3>2️⃣ Conectivismo</h3>
+<p>
+Desde la perspectiva conectivista, el aprendizaje ocurre en redes. La gamificación fortalece esta visión al promover interacción, cooperación y construcción colectiva.
+</p>
+
+<h3>3️⃣ Motivación intrínseca</h3>
+<p>
+Siguiendo a Deci y Ryan, los entornos gamificados potencian autonomía, competencia y sentido de pertenencia.
+</p>
+
+<table>
+<tr>
+<th>Educación Tradicional</th>
+<th>Educación Gamificada</th>
+</tr>
+<tr>
+<td>Memorización</td>
+<td>Desafíos y misiones</td>
+</tr>
+<tr>
+<td>Evaluación final</td>
+<td>Retroalimentación constante</td>
+</tr>
+<tr>
+<td>Alumno pasivo</td>
+<td>Protagonista activo</td>
+</tr>
+</table>
+
+</section>
+
+<section id="implementacion">
+<h2>⚙️ Cómo implementar gamificación en el aula</h2>
+
+<h3>Paso 1: Definir objetivos claros</h3>
+<p>Establecer competencias y resultados de aprendizaje medibles.</p>
+
+<h3>Paso 2: Diseñar narrativa</h3>
+<p>Crear una historia que conecte emocionalmente con los estudiantes.</p>
+
+<h3>Paso 3: Incorporar mecánicas de juego</h3>
+<ul>
+<li>Niveles progresivos</li>
+<li>Insignias digitales</li>
+<li>Ranking colaborativo</li>
+<li>Retos semanales</li>
+</ul>
+
+<h3>Paso 4: Evaluación formativa</h3>
+<p>Integrar retroalimentación constante y rúbricas claras.</p>
+
 <div class="card">
-<h3>🎯 ABP</h3>
-<p>Aprender resolviendo problemas reales.</p>
+<strong>Ejemplo práctico:</strong>
+<p>
+En una clase de ciencias, los estudiantes pueden convertirse en “exploradores espaciales” que deben resolver misiones relacionadas con el sistema solar. Cada misión superada desbloquea nuevos conocimientos.
+</p>
 </div>
-<div class="card">
-<h3>🌐 Conectivismo</h3>
-<p>Aprender mediante redes y conexiones.</p>
-</div>
-<div class="card">
-<h3>💻 TIC</h3>
-<p>Herramientas digitales como mediadoras del aprendizaje.</p>
-</div>
-</div>
+
 </section>
 
 <section id="experiencias">
 <h2>🌎 Experiencias internacionales</h2>
-<div class="cards">
+
+<p>
+Diversos países han implementado estrategias de gamificación con resultados positivos:
+</p>
+
 <div class="card">
-<h3>🇨🇦 Classcraft</h3>
-<p>Aula convertida en juego de rol.</p>
+<h3>🇨🇦 Canadá</h3>
+<p>Uso de plataformas como Classcraft para mejorar convivencia y rendimiento.</p>
 </div>
+
 <div class="card">
 <h3>🇫🇮 Finlandia</h3>
-<p>Aprendizaje personalizado por niveles.</p>
+<p>Sistemas personalizados por niveles que fortalecen autonomía.</p>
 </div>
+
+<div class="card">
+<h3>🇪🇸 España</h3>
+<p>Proyectos interdisciplinarios gamificados en educación secundaria.</p>
 </div>
+
+</section>
+
+<section id="retos">
+<h2>⚠️ Retos y recomendaciones</h2>
+
+<ul>
+<li>Evitar centrarse solo en recompensas externas.</li>
+<li>Diseñar experiencias coherentes con el currículo.</li>
+<li>Capacitar docentes en diseño instruccional.</li>
+<li>Garantizar acceso equitativo a tecnología.</li>
+</ul>
+
+<p>
+La gamificación mal implementada puede trivializar el aprendizaje; sin embargo, cuando se diseña con fundamento pedagógico, potencia la participación y la comprensión profunda.
+</p>
+
 </section>
 
 <section id="conclusiones">
 <h2>🏆 Conclusiones</h2>
-<p>La gamificación convierte el aprendizaje en una travesía significativa donde el estudiante es protagonista.</p>
 
-<h3>📢 Comparte este artículo</h3>
-<button>Facebook</button>
-<button>Twitter</button>
-<button>LinkedIn</button>
-</section>
+<p>
+La gamificación representa una oportunidad para resignificar la experiencia educativa. No sustituye la pedagogía, sino que la complementa, fortaleciendo la motivación, la autonomía y el aprendizaje significativo.
+</p>
 
-<section>
-<h2>📬 Suscríbete</h2>
-<input type="email" placeholder="Tu correo electrónico" style="padding:10px;border-radius:20px;border:none;width:60%;">
-<button>Suscribirme</button>
+<p>
+En un mundo digitalizado, la escuela necesita evolucionar. Gamificar implica diseñar experiencias que conecten emoción, cognición y colaboración.
+</p>
+
+<button>Compartir en Facebook</button>
+<button>Compartir en LinkedIn</button>
+
 </section>
 
 <section>
 <h2>💬 Comentarios</h2>
 <div class="card">
 <strong>Ana López</strong>
-<p>Excelente reflexión pedagógica.</p>
+<p>Excelente desarrollo conceptual. Muy útil para docentes en formación.</p>
 </div>
 <textarea placeholder="Escribe tu comentario..." style="width:100%;padding:10px;border-radius:10px;margin-top:15px;"></textarea>
 <button>Publicar comentario</button>
@@ -292,18 +317,21 @@ Iniciar aventura 🚀
 <h3>📂 Categorías</h3>
 <ul>
 <li>Gamificación</li>
-<li>Innovación</li>
+<li>Innovación Educativa</li>
 <li>ABP</li>
+<li>TIC</li>
 </ul>
 
 <h3>🔥 Artículos recientes</h3>
 <ul>
-<li>Cómo motivar estudiantes digitales</li>
-<li>Evaluación creativa</li>
+<li>Diseño Universal para el Aprendizaje</li>
+<li>Neuroeducación en el aula</li>
+<li>Evaluación formativa digital</li>
 </ul>
 
-<h3>🏷 Etiquetas</h3>
-<p>#Gamificación #EducaciónDigital #AprendizajeActivo</p>
+<h3>📌 Sobre el autor</h3>
+<p>Docente e investigador en innovación pedagógica y transformación educativa digital.</p>
+
 </aside>
 
 </main>
@@ -312,17 +340,7 @@ Iniciar aventura 🚀
 <h3>🚀 EduGame Blog</h3>
 <p>Innovación educativa • Gamificación • ABP • TIC</p>
 <p>© 2026 Gabriel Mejía</p>
-<button onclick="document.body.classList.toggle('dark')">🌙 Modo oscuro</button>
 </footer>
-
-<script>
-window.onscroll = function() {
-let winScroll = document.documentElement.scrollTop;
-let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-let scrolled = (winScroll / height) * 100;
-document.getElementById("progress-bar").style.width = scrolled + "%";
-}
-</script>
 
 </body>
 </html>
