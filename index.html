@@ -5,7 +5,8 @@
 <title>Gamificación y Educación</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
 <style>
 html { scroll-behavior: smooth; }
@@ -13,214 +14,294 @@ html { scroll-behavior: smooth; }
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to right, #eef2ff, #f9fafb);
-    color: #333;
+    background: linear-gradient(135deg,#0f172a,#1e3a8a);
+    color: #f1f5f9;
 }
 
-/* HEADER */
+/* HERO */
 header {
-    background: linear-gradient(135deg, #1e3a8a, #2563eb);
-    color: white;
-    padding: 40px 20px;
+    min-height: 100vh;
+    background: radial-gradient(circle at top, #2563eb, #020617);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    padding: 40px;
+}
+
+.hero-box {
+    background: rgba(255,255,255,0.08);
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.4);
+}
+
+header h1 {
+    font-size: 3em;
+    color: #38bdf8;
+}
+
+header p {
+    font-size: 1.3em;
 }
 
 /* NAV */
 nav {
     position: sticky;
     top: 0;
-    background-color: #1e40af;
-    padding: 10px;
+    background: #020617;
+    padding: 12px;
     text-align: center;
     z-index: 1000;
 }
 
 nav a {
-    color: white;
+    color: #38bdf8;
     margin: 0 12px;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: bold;
 }
 
-nav a:hover { text-decoration: underline; }
+nav a:hover {
+    color: #facc15;
+}
 
 /* MAIN */
 main {
-    max-width: 1000px;
+    max-width: 1100px;
     margin: auto;
-    padding: 30px 20px;
+    padding: 40px 20px;
+}
+
+/* PROGRESS BAR */
+#progress-container {
+    width: 100%;
+    background: #1e293b;
+    height: 8px;
+    position: fixed;
+    top: 0;
+    z-index: 2000;
+}
+
+#progress-bar {
+    height: 8px;
+    background: linear-gradient(to right,#22d3ee,#a855f7);
+    width: 0%;
 }
 
 /* SECTIONS */
 section {
-    background: white;
-    border-radius: 12px;
-    padding: 25px 30px;
-    margin-bottom: 30px;
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
+    background: rgba(255,255,255,0.05);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 40px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    animation: fadeIn 1s ease;
 }
 
-/* TITLES */
-h1 { font-size: 2.5em; }
 h2 {
-    color: #1e3a8a;
-    border-left: 6px solid #2563eb;
-    padding-left: 10px;
+    color: #38bdf8;
 }
-h3 { color: #2563eb; }
+
+h3 {
+    color: #facc15;
+}
+
+/* CARDS */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 20px;
+}
+
+.card {
+    background: rgba(0,0,0,0.4);
+    padding: 20px;
+    border-radius: 15px;
+    transition: transform .3s, box-shadow .3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #38bdf8;
+}
+
+/* BUTTON */
+button {
+    background: linear-gradient(to right,#38bdf8,#a855f7);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+}
 
 /* FOOTER */
 footer {
-    background-color: #1e3a8a;
-    color: white;
+    background: black;
     text-align: center;
-    padding: 20px;
+    padding: 30px;
 }
 
-@media (max-width: 768px) {
-    nav a { display: block; margin: 8px 0; }
+/* ANIMATIONS */
+@keyframes fadeIn {
+    from {opacity:0; transform: translateY(20px);}
+    to {opacity:1; transform: translateY(0);}
+}
+
+/* DARK MODE */
+.dark {
+    background: black;
 }
 </style>
 </head>
 
 <body>
 
+<div id="progress-container">
+<div id="progress-bar"></div>
+</div>
+
 <header>
-<h1>Gamificación y Educación</h1>
-<p>Nuevas formas de aprender en la escuela del siglo XXI</p>
+<div class="hero-box">
+<h1>🎮 Gamificación y Educación</h1>
+<p>Una aventura pedagógica en la escuela del siglo XXI</p>
+<p>Explora cómo aprender puede convertirse en una misión épica</p>
+<button onclick="alert('¡Bienvenido a la misión educativa! 🚀')">Iniciar aventura</button>
+</div>
 </header>
 
 <nav>
-<a href="#introduccion">Introducción</a>
-<a href="#fundamentos">Fundamentos</a>
-<a href="#relacion">Relación</a>
-<a href="#experiencias">Experiencias</a>
-<a href="#cambio">Cambio educativo</a>
-<a href="#conclusiones">Conclusiones</a>
-<a href="#referencias">Referencias</a>
+<a href="#introduccion">🌍 Introducción</a>
+<a href="#fundamentos">🧠 Fundamentos</a>
+<a href="#relacion">⚙️ Relación</a>
+<a href="#experiencias">🌎 Experiencias</a>
+<a href="#cambio">🔄 Cambio</a>
+<a href="#conclusiones">🏆 Conclusiones</a>
+<a href="#referencias">📚 Referencias</a>
 </nav>
 
 <main>
 
 <section id="introduccion">
-<h2>Introducción</h2>
+<h2>🌍 Introducción: El inicio del juego</h2>
 <p>
-En la actualidad, los procesos educativos enfrentan el desafío de responder a profundas transformaciones sociales, tecnológicas y culturales propias del siglo XXI. La escuela tradicional, centrada en la transmisión de contenidos de manera pasiva, resulta insuficiente frente a estudiantes que interactúan diariamente con entornos digitales, videojuegos, redes sociales y plataformas multimedia.
+La educación del siglo XXI se encuentra ante un escenario desafiante: estudiantes inmersos en mundos digitales, videojuegos, redes sociales y experiencias interactivas. La escuela tradicional ya no logra captar su atención como antes. Surge entonces la gamificación como una narrativa transformadora que convierte el aprendizaje en una experiencia viva.
 </p>
 <p>
-La gamificación en educación surge como una estrategia pedagógica innovadora que integra elementos propios del juego en contextos educativos con el fin de aumentar la motivación, la participación y el compromiso del estudiante con su propio aprendizaje. No se trata simplemente de jugar, sino de estructurar experiencias didácticas mediante retos, misiones, recompensas, niveles y narrativas que convierten el aprendizaje en una experiencia significativa.
-</p>
-<p>
-Este blog tiene como objetivo analizar el constructo conceptual de la relación entre gamificación y educación, identificar sus fundamentos pedagógicos y presentar experiencias internacionales que evidencian una transformación en la concepción de la escuela y en el rol del estudiante como sujeto activo del proceso educativo.
+Gamificar no significa jugar sin propósito, sino diseñar rutas de aprendizaje con misiones, recompensas simbólicas, niveles de dificultad y retroalimentación constante.
 </p>
 </section>
 
 <section id="fundamentos">
-<h2>1. Gamificación: concepto y fundamentos pedagógicos</h2>
-<p>
-La gamificación puede definirse como el uso de elementos propios del juego en contextos no lúdicos con el propósito de promover la motivación, la participación activa y el aprendizaje significativo. En el ámbito educativo, esta estrategia permite transformar las clases tradicionales en experiencias interactivas que fortalecen la autonomía, la creatividad y la toma de decisiones del estudiante.
-</p>
-<p>
-Desde una perspectiva pedagógica, la gamificación se apoya en diversos enfoques teóricos contemporáneos:
-</p>
-<ul>
-<li><strong>Aprendizaje Basado en Problemas (ABP):</strong> favorece la resolución de situaciones reales mediante desafíos estructurados que promueven el pensamiento crítico y la búsqueda autónoma de soluciones (Boude & Ruiz, 2009).</li>
-<li><strong>Conectivismo:</strong> concibe el aprendizaje como una red de conexiones entre personas, tecnologías e información, destacando el papel de los entornos digitales en la construcción del conocimiento (Sobrino Morrás, 2014).</li>
-<li><strong>Mediaciones tecnológicas:</strong> proponen nuevos escenarios de interacción educativa mediados por las TIC, ampliando las posibilidades pedagógicas del aula tradicional (Muñoz Rojas, 2016).</li>
-</ul>
-<p>
-Estos enfoques coinciden en reconocer que el aprendizaje se fortalece cuando el estudiante participa activamente, experimenta, se equivoca y construye su propio conocimiento a partir de la experiencia.
-</p>
+<h2>🧠 Fundamentos pedagógicos</h2>
+<div class="cards">
+<div class="card">
+<h3>🎯 ABP</h3>
+<p>Resolver problemas reales mediante desafíos fomenta pensamiento crítico y autonomía.</p>
+</div>
+<div class="card">
+<h3>🌐 Conectivismo</h3>
+<p>El aprendizaje surge de conexiones entre personas, tecnología y conocimiento.</p>
+</div>
+<div class="card">
+<h3>💻 Mediaciones TIC</h3>
+<p>Las TIC expanden los escenarios educativos hacia mundos interactivos.</p>
+</div>
+</div>
 </section>
 
 <section id="relacion">
-<h2>2. Relación entre gamificación y educación</h2>
-<p>
-La gamificación transforma la relación tradicional entre docente, estudiante y conocimiento. Se pasa de un modelo centrado en la transmisión de información a uno donde el estudiante se convierte en protagonista de su proceso formativo.
-</p>
+<h2>⚙️ Relación Gamificación-Educación</h2>
 <ul>
-<li>El estudiante asume un rol activo y responsable de su aprendizaje.</li>
-<li>El error se concibe como parte natural del proceso formativo.</li>
-<li>Se fortalece la motivación intrínseca mediante retos y recompensas simbólicas.</li>
-<li>Se desarrollan habilidades cognitivas, sociales y emocionales.</li>
+<li>🧑‍🚀 Estudiante protagonista</li>
+<li>❌ Error como aprendizaje</li>
+<li>🔥 Motivación intrínseca</li>
+<li>🤝 Trabajo colaborativo</li>
+<li>🧩 Desarrollo socioemocional</li>
 </ul>
-<p>
-Entre los elementos clave de la gamificación educativa se encuentran la narrativa, los retos y misiones, los sistemas de puntos o niveles, la retroalimentación inmediata y el trabajo colaborativo. Estos componentes favorecen la autonomía, la cooperación y el pensamiento crítico.
-</p>
 </section>
 
 <section id="experiencias">
-<h2>3. Experiencias de gamificación en educación</h2>
+<h2>🌎 Experiencias internacionales</h2>
 
-<h3>Classcraft (Canadá)</h3>
-<p>
-Classcraft es una plataforma educativa que convierte el aula en un juego de rol. Los estudiantes crean avatares, obtienen puntos por comportamientos positivos y completan misiones académicas.
-</p>
-<ul>
-<li>Mejora del clima escolar.</li>
-<li>Incremento de la participación estudiantil.</li>
-<li>Reducción del ausentismo y la deserción.</li>
-</ul>
+<div class="cards">
+<div class="card">
+<h3>🇨🇦 Classcraft</h3>
+<p>Aula convertida en juego de rol con avatares y misiones.</p>
+</div>
 
-<h3>España</h3>
-<p>
-Batlle (2016) implementó una experiencia de gamificación para fortalecer la comunicación intercultural en la enseñanza del español como lengua extranjera, mediante juegos de roles, retos culturales y actividades colaborativas.
-</p>
+<div class="card">
+<h3>🇪🇸 España</h3>
+<p>Comunicación intercultural mediante retos culturales.</p>
+</div>
 
-<h3>Finlandia</h3>
-<p>
-En Finlandia se desarrollan entornos digitales gamificados donde el estudiante avanza por niveles según su progreso, integrando matemáticas, ciencias y lectura, priorizando la personalización del aprendizaje.
-</p>
+<div class="card">
+<h3>🇫🇮 Finlandia</h3>
+<p>Plataformas por niveles con aprendizaje personalizado.</p>
+</div>
 
-<h3>México</h3>
-<p>
-Marrón (2018) diseñó una gincana gamificada para la enseñanza de programación, en la cual los estudiantes resolvían problemas mediante estaciones con desafíos progresivos, fomentando el trabajo en equipo.
-</p>
+<div class="card">
+<h3>🇲🇽 México</h3>
+<p>Gincanas de programación con estaciones de desafío.</p>
+</div>
+</div>
+
 </section>
 
 <section id="cambio">
-<h2>4. Cambio en la concepción de la escuela</h2>
-<ul>
-<li>Docente transmisor → Docente mediador</li>
-<li>Estudiante pasivo → Estudiante activo</li>
-<li>Evaluación memorística → Evaluación formativa</li>
-<li>Clases rígidas → Aprendizaje dinámico</li>
-<li>Individualismo → Colaboración</li>
-</ul>
+<h2>🔄 Cambio educativo</h2>
 <p>
-La escuela se transforma en un espacio de exploración, creatividad y construcción colectiva del conocimiento, donde la motivación se convierte en motor principal del aprendizaje.
+La escuela deja de ser un espacio rígido para convertirse en un laboratorio creativo donde se aprende jugando, reflexionando y colaborando.
 </p>
+<ul>
+<li>Docente transmisor → Mediador</li>
+<li>Alumno pasivo → Explorador</li>
+<li>Memorización → Comprensión</li>
+<li>Individualismo → Comunidad</li>
+</ul>
 </section>
 
 <section id="conclusiones">
-<h2>Conclusiones</h2>
+<h2>🏆 Conclusiones</h2>
 <p>
-La gamificación representa una estrategia pedagógica innovadora que responde a las necesidades educativas contemporáneas, promoviendo un aprendizaje activo, significativo y motivador.
+La gamificación transforma la experiencia educativa en una travesía significativa donde el aprendizaje se convierte en aventura.
 </p>
 <p>
-Las experiencias internacionales evidencian que la gamificación transforma la concepción tradicional de la escuela, posicionando al estudiante como protagonista del proceso educativo y al docente como mediador del aprendizaje.
+El estudiante asume el rol de héroe de su propio conocimiento y el docente se convierte en guía del camino.
 </p>
 <p>
-Finalmente, el uso del blog como espacio de socialización del conocimiento fortalece la participación de la comunidad educativa y promueve la reflexión colectiva sobre nuevas formas de enseñar y aprender.
+El blog se consolida como un espacio de encuentro, reflexión y construcción colectiva del saber.
 </p>
 </section>
 
 <section id="referencias">
-<h2>Referencias</h2>
+<h2>📚 Referencias</h2>
 <ul>
-<li>Batlle, J. (2016).</li>
-<li>Boude & Ruiz (2009).</li>
-<li>Marrón (2018).</li>
-<li>Muñoz Rojas (2016).</li>
-<li>Sobrino Morrás (2014).</li>
+<li>Batlle (2016)</li>
+<li>Boude & Ruiz (2009)</li>
+<li>Marrón (2018)</li>
+<li>Muñoz Rojas (2016)</li>
+<li>Sobrino Morrás (2014)</li>
 </ul>
 </section>
 
 </main>
 
 <footer>
-<p>Blog académico sobre Gamificación y Educación – Proyecto universitario</p>
+<p>🚀 Blog académico interactivo - Gamificación y Educación</p>
+<button onclick="document.body.classList.toggle('dark')">🌙 Modo oscuro</button>
 </footer>
+
+<script>
+window.onscroll = function() {
+let winScroll = document.documentElement.scrollTop;
+let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+let scrolled = (winScroll / height) * 100;
+document.getElementById("progress-bar").style.width = scrolled + "%";
+}
+</script>
 
 </body>
 </html>
