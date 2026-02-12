@@ -17,17 +17,6 @@ body {
     color: #f1f5f9;
 }
 
-/* Barra progreso lectura */
-#progressBar{
-    position:fixed;
-    top:0;
-    left:0;
-    height:4px;
-    width:0%;
-    background:#38bdf8;
-    z-index:2000;
-}
-
 .topbar {
     background:#0f172a;
     padding:10px 20px;
@@ -91,7 +80,6 @@ section {
     border-radius: 20px;
     padding: 30px;
     margin-bottom: 40px;
-    transition:0.5s;
 }
 
 h2 { color: #38bdf8; }
@@ -147,11 +135,9 @@ footer {
 
 <body>
 
-<div id="progressBar"></div>
-
 <div class="topbar">
 <div style="font-weight:bold;color:#38bdf8;">📝 EduGame Blog</div>
-<input type="text" id="searchInput" placeholder="Buscar artículo...">
+<input type="text" placeholder="Buscar artículo...">
 </div>
 
 <header>
@@ -159,100 +145,202 @@ footer {
 <h1>🎮 Gamificación y Educación</h1>
 <p>Una transformación pedagógica para la escuela del siglo XXI</p>
 <p>Publicado el 12 Febrero 2026 • ⏱ 12 min de lectura • ✍ Aldo Ray Herrera Herrera</p>
-<button id="likeBtn">👍 Me gusta (<span id="likeCount">0</span>)</button>
 </div>
 </header>
 
-<!-- TODO TU CONTENIDO ORIGINAL SIN CAMBIOS (lo dejé intacto) -->
+<nav>
+<a href="#introduccion">Introducción</a>
+<a href="#fundamentos">Fundamentos</a>
+<a href="#implementacion">Implementación</a>
+<a href="#experiencias">Experiencias</a>
+<a href="#retos">Retos</a>
+<a href="#conclusiones">Conclusiones</a>
+</nav>
 
-<!-- 🔥 SCRIPT INTERACTIVO -->
-<script>
+<main>
 
-// Barra progreso lectura
-window.onscroll = function() {
-    let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    let scrolled = (winScroll / height) * 100;
-    document.getElementById("progressBar").style.width = scrolled + "%";
-};
+<div>
 
-// Buscador
-document.getElementById("searchInput").addEventListener("keyup", function(){
-    let filter = this.value.toLowerCase();
-    document.querySelectorAll("section").forEach(sec=>{
-        sec.style.display = sec.innerText.toLowerCase().includes(filter) ? "block" : "none";
-    });
-});
+<section id="introduccion">
+<h2>🌍 Introducción</h2>
 
-// Like persistente
-let likes = localStorage.getItem("likes") || 0;
-document.getElementById("likeCount").innerText = likes;
+<p>
+La educación contemporánea enfrenta una tensión evidente: mientras los estudiantes habitan entornos digitales interactivos, la escuela continúa utilizando metodologías tradicionales centradas en la transmisión de contenidos. Esta brecha genera desmotivación, desconexión y bajo compromiso académico.
+</p>
 
-document.getElementById("likeBtn").addEventListener("click", function(){
-    likes++;
-    localStorage.setItem("likes", likes);
-    document.getElementById("likeCount").innerText = likes;
-});
+<p>
+La gamificación emerge como una estrategia pedagógica innovadora que incorpora elementos propios del juego —misiones, niveles, recompensas simbólicas, retroalimentación inmediata y narrativa— con el propósito de fortalecer la motivación y el aprendizaje significativo.
+</p>
 
-// Comentarios dinámicos con guardado
-const textarea = document.querySelector("textarea");
-const commentBtn = document.querySelector("textarea + button");
-const commentSection = textarea.parentNode;
+<p>
+No se trata de jugar por jugar, sino de diseñar experiencias estructuradas que activen la motivación intrínseca y el compromiso cognitivo.
+</p>
+</section>
 
-function loadComments(){
-    let comments = JSON.parse(localStorage.getItem("comments")) || [];
-    comments.forEach(text=>{
-        addComment(text);
-    });
-}
+<section id="fundamentos">
+<h2>🧠 Fundamentos pedagógicos</h2>
 
-function addComment(text){
-    let div = document.createElement("div");
-    div.classList.add("card");
-    div.innerHTML = "<strong>Usuario</strong><p>"+text+"</p>";
-    commentSection.insertBefore(div, textarea);
-}
+<h3>1️⃣ Aprendizaje Basado en Problemas (ABP)</h3>
+<p>
+La gamificación se articula con el ABP al plantear desafíos auténticos que requieren análisis, colaboración y toma de decisiones. El estudiante deja de ser receptor pasivo y asume un rol activo en la construcción del conocimiento.
+</p>
 
-commentBtn.addEventListener("click", function(){
-    let text = textarea.value.trim();
-    if(text !== ""){
-        addComment(text);
-        let comments = JSON.parse(localStorage.getItem("comments")) || [];
-        comments.push(text);
-        localStorage.setItem("comments", JSON.stringify(comments));
-        textarea.value="";
-    }
-});
+<h3>2️⃣ Conectivismo</h3>
+<p>
+Desde la perspectiva conectivista, el aprendizaje ocurre en redes. La gamificación fortalece esta visión al promover interacción, cooperación y construcción colectiva.
+</p>
 
-loadComments();
+<h3>3️⃣ Motivación intrínseca</h3>
+<p>
+Siguiendo a Deci y Ryan, los entornos gamificados potencian autonomía, competencia y sentido de pertenencia.
+</p>
 
-// Botones compartir
-document.querySelectorAll("button").forEach(btn=>{
-    if(btn.innerText.includes("Facebook")){
-        btn.onclick = ()=>window.open("https://www.facebook.com/sharer/sharer.php?u="+location.href);
-    }
-    if(btn.innerText.includes("LinkedIn")){
-        btn.onclick = ()=>window.open("https://www.linkedin.com/sharing/share-offsite/?url="+location.href);
-    }
-});
+<table>
+<tr>
+<th>Educación Tradicional</th>
+<th>Educación Gamificada</th>
+</tr>
+<tr>
+<td>Memorización</td>
+<td>Desafíos y misiones</td>
+</tr>
+<tr>
+<td>Evaluación final</td>
+<td>Retroalimentación constante</td>
+</tr>
+<tr>
+<td>Alumno pasivo</td>
+<td>Protagonista activo</td>
+</tr>
+</table>
 
-// Animación scroll
-const observer = new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-        if(entry.isIntersecting){
-            entry.target.style.opacity=1;
-            entry.target.style.transform="translateY(0)";
-        }
-    });
-});
+</section>
 
-document.querySelectorAll("section").forEach(sec=>{
-    sec.style.opacity=0;
-    sec.style.transform="translateY(40px)";
-    observer.observe(sec);
-});
+<section id="implementacion">
+<h2>⚙️ Cómo implementar gamificación en el aula</h2>
 
-</script>
+<h3>Paso 1: Definir objetivos claros</h3>
+<p>Establecer competencias y resultados de aprendizaje medibles.</p>
+
+<h3>Paso 2: Diseñar narrativa</h3>
+<p>Crear una historia que conecte emocionalmente con los estudiantes.</p>
+
+<h3>Paso 3: Incorporar mecánicas de juego</h3>
+<ul>
+<li>Niveles progresivos</li>
+<li>Insignias digitales</li>
+<li>Ranking colaborativo</li>
+<li>Retos semanales</li>
+</ul>
+
+<h3>Paso 4: Evaluación formativa</h3>
+<p>Integrar retroalimentación constante y rúbricas claras.</p>
+
+<div class="card">
+<strong>Ejemplo práctico:</strong>
+<p>
+En una clase de ciencias, los estudiantes pueden convertirse en “exploradores espaciales” que deben resolver misiones relacionadas con el sistema solar. Cada misión superada desbloquea nuevos conocimientos.
+</p>
+</div>
+
+</section>
+
+<section id="experiencias">
+<h2>🌎 Experiencias internacionales</h2>
+
+<p>
+Diversos países han implementado estrategias de gamificación con resultados positivos:
+</p>
+
+<div class="card">
+<h3>🇨🇦 Canadá</h3>
+<p>Uso de plataformas como Classcraft para mejorar convivencia y rendimiento.</p>
+</div>
+
+<div class="card">
+<h3>🇫🇮 Finlandia</h3>
+<p>Sistemas personalizados por niveles que fortalecen autonomía.</p>
+</div>
+
+<div class="card">
+<h3>🇪🇸 España</h3>
+<p>Proyectos interdisciplinarios gamificados en educación secundaria.</p>
+</div>
+
+</section>
+
+<section id="retos">
+<h2>⚠️ Retos y recomendaciones</h2>
+
+<ul>
+<li>Evitar centrarse solo en recompensas externas.</li>
+<li>Diseñar experiencias coherentes con el currículo.</li>
+<li>Capacitar docentes en diseño instruccional.</li>
+<li>Garantizar acceso equitativo a tecnología.</li>
+</ul>
+
+<p>
+La gamificación mal implementada puede trivializar el aprendizaje; sin embargo, cuando se diseña con fundamento pedagógico, potencia la participación y la comprensión profunda.
+</p>
+
+</section>
+
+<section id="conclusiones">
+<h2>🏆 Conclusiones</h2>
+
+<p>
+La gamificación representa una oportunidad para resignificar la experiencia educativa. No sustituye la pedagogía, sino que la complementa, fortaleciendo la motivación, la autonomía y el aprendizaje significativo.
+</p>
+
+<p>
+En un mundo digitalizado, la escuela necesita evolucionar. Gamificar implica diseñar experiencias que conecten emoción, cognición y colaboración.
+</p>
+
+<button>Compartir en Facebook</button>
+<button>Compartir en LinkedIn</button>
+
+</section>
+
+<section>
+<h2>💬 Comentarios</h2>
+<div class="card">
+<strong>Ana López</strong>
+<p>Excelente desarrollo conceptual. Muy útil para docentes en formación.</p>
+</div>
+<textarea placeholder="Escribe tu comentario..." style="width:100%;padding:10px;border-radius:10px;margin-top:15px;"></textarea>
+<button>Publicar comentario</button>
+</section>
+
+</div>
+
+<aside>
+<h3>📂 Categorías</h3>
+<ul>
+<li>Gamificación</li>
+<li>Innovación Educativa</li>
+<li>ABP</li>
+<li>TIC</li>
+</ul>
+
+<h3>🔥 Artículos recientes</h3>
+<ul>
+<li>Diseño Universal para el Aprendizaje</li>
+<li>Neuroeducación en el aula</li>
+<li>Evaluación formativa digital</li>
+</ul>
+
+<h3>📌 Sobre el autor</h3>
+<p>Docente e investigador en innovación pedagógica y transformación educativa digital.</p>
+
+</aside>
+
+</main>
+
+<footer>
+<h3>🚀 EduGame Blog</h3>
+<p>Innovación educativa • Gamificación • ABP • TIC</p>
+<p>© 2026 Aldo Ray Herrera Herrera</p>
+</footer>
 
 </body>
 </html>
