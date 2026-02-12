@@ -18,6 +18,22 @@ body {
     color: #f1f5f9;
 }
 
+/* TOP BAR */
+.topbar {
+    background:#0f172a;
+    padding:10px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.topbar input {
+    padding:6px 12px;
+    border-radius:20px;
+    border:none;
+    outline:none;
+}
+
 /* HERO */
 header {
     min-height: 100vh;
@@ -34,6 +50,7 @@ header {
     padding: 50px;
     border-radius: 20px;
     box-shadow: 0 0 30px rgba(0,0,0,0.4);
+    max-width:800px;
 }
 
 header h1 {
@@ -41,8 +58,10 @@ header h1 {
     color: #38bdf8;
 }
 
-header p {
-    font-size: 1.3em;
+header img {
+    width:100%;
+    border-radius:15px;
+    margin-top:20px;
 }
 
 /* NAV */
@@ -62,31 +81,32 @@ nav a {
     font-weight: bold;
 }
 
-nav a:hover {
-    color: #facc15;
-}
-
-/* MAIN */
-main {
-    max-width: 1100px;
-    margin: auto;
-    padding: 40px 20px;
-}
+nav a:hover { color: #facc15; }
 
 /* PROGRESS BAR */
 #progress-container {
     width: 100%;
     background: #1e293b;
-    height: 8px;
+    height: 6px;
     position: fixed;
     top: 0;
     z-index: 2000;
 }
 
 #progress-bar {
-    height: 8px;
+    height: 6px;
     background: linear-gradient(to right,#22d3ee,#a855f7);
     width: 0%;
+}
+
+/* MAIN GRID */
+main {
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 20px;
+    display:grid;
+    grid-template-columns:3fr 1fr;
+    gap:40px;
 }
 
 /* SECTIONS */
@@ -96,16 +116,10 @@ section {
     padding: 30px;
     margin-bottom: 40px;
     box-shadow: 0 0 15px rgba(0,0,0,0.3);
-    animation: fadeIn 1s ease;
 }
 
-h2 {
-    color: #38bdf8;
-}
-
-h3 {
-    color: #facc15;
-}
+h2 { color: #38bdf8; }
+h3 { color: #facc15; }
 
 /* CARDS */
 .cards {
@@ -126,15 +140,26 @@ h3 {
     box-shadow: 0 0 20px #38bdf8;
 }
 
+/* SIDEBAR */
+aside {
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: 20px;
+    height: fit-content;
+}
+
+aside ul { padding-left:20px; }
+
 /* BUTTON */
 button {
     background: linear-gradient(to right,#38bdf8,#a855f7);
     border: none;
-    padding: 12px 20px;
+    padding: 10px 18px;
     border-radius: 20px;
     font-weight: bold;
     cursor: pointer;
-    margin-top: 20px;
+    margin-top: 10px;
+    color:white;
 }
 
 /* FOOTER */
@@ -144,15 +169,16 @@ footer {
     padding: 30px;
 }
 
-/* ANIMATIONS */
-@keyframes fadeIn {
-    from {opacity:0; transform: translateY(20px);}
-    to {opacity:1; transform: translateY(0);}
-}
-
 /* DARK MODE */
 .dark {
-    background: black;
+    background: black !important;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+    main{
+        grid-template-columns:1fr;
+    }
 }
 </style>
 </head>
@@ -163,38 +189,43 @@ footer {
 <div id="progress-bar"></div>
 </div>
 
+<div class="topbar">
+<div style="font-weight:bold;color:#38bdf8;">📝 EduGame Blog</div>
+<input type="text" placeholder="Buscar artículo...">
+</div>
+
 <header>
 <div class="hero-box">
 <h1>🎮 Gamificación y Educación</h1>
 <p>Una aventura pedagógica en la escuela del siglo XXI</p>
 <p>Explora cómo aprender puede convertirse en una misión épica</p>
+
+<p style="font-size:0.9em;opacity:0.8;">
+Publicado el 12 Febrero 2026 • ⏱ 8 min de lectura • ✍ Gabriel Mejía
+</p>
+
+<img src="https://images.unsplash.com/photo-1584697964403-4b17f6b5c9d5">
+
 <button onclick="document.getElementById('introduccion').scrollIntoView({behavior: 'smooth'});">
 Iniciar aventura 🚀
 </button>
-
 </div>
 </header>
 
 <nav>
-<a href="#introduccion">🌍 Introducción</a>
-<a href="#fundamentos">🧠 Fundamentos</a>
-<a href="#relacion">⚙️ Relación</a>
-<a href="#experiencias">🌎 Experiencias</a>
-<a href="#cambio">🔄 Cambio</a>
-<a href="#conclusiones">🏆 Conclusiones</a>
-<a href="#referencias">📚 Referencias</a>
+<a href="#introduccion">Introducción</a>
+<a href="#fundamentos">Fundamentos</a>
+<a href="#experiencias">Experiencias</a>
+<a href="#conclusiones">Conclusiones</a>
 </nav>
 
 <main>
 
+<div>
+
 <section id="introduccion">
-<h2>🌍 Introducción: El inicio del juego</h2>
-<p>
-La educación del siglo XXI se encuentra ante un escenario desafiante: estudiantes inmersos en mundos digitales, videojuegos, redes sociales y experiencias interactivas. La escuela tradicional ya no logra captar su atención como antes. Surge entonces la gamificación como una narrativa transformadora que convierte el aprendizaje en una experiencia viva.
-</p>
-<p>
-Gamificar no significa jugar sin propósito, sino diseñar rutas de aprendizaje con misiones, recompensas simbólicas, niveles de dificultad y retroalimentación constante.
-</p>
+<h2>🌍 Introducción</h2>
+<p>La educación del siglo XXI enfrenta el desafío de captar la atención de estudiantes digitales. La gamificación surge como estrategia que transforma el aprendizaje en experiencia significativa.</p>
 </section>
 
 <section id="fundamentos">
@@ -202,98 +233,85 @@ Gamificar no significa jugar sin propósito, sino diseñar rutas de aprendizaje 
 <div class="cards">
 <div class="card">
 <h3>🎯 ABP</h3>
-<p>Resolver problemas reales mediante desafíos fomenta pensamiento crítico y autonomía.</p>
+<p>Aprender resolviendo problemas reales.</p>
 </div>
 <div class="card">
 <h3>🌐 Conectivismo</h3>
-<p>El aprendizaje surge de conexiones entre personas, tecnología y conocimiento.</p>
+<p>Aprender mediante redes y conexiones.</p>
 </div>
 <div class="card">
-<h3>💻 Mediaciones TIC</h3>
-<p>Las TIC expanden los escenarios educativos hacia mundos interactivos.</p>
+<h3>💻 TIC</h3>
+<p>Herramientas digitales como mediadoras del aprendizaje.</p>
 </div>
 </div>
-</section>
-
-<section id="relacion">
-<h2>⚙️ Relación Gamificación-Educación</h2>
-<ul>
-<li>🧑‍🚀 Estudiante protagonista</li>
-<li>❌ Error como aprendizaje</li>
-<li>🔥 Motivación intrínseca</li>
-<li>🤝 Trabajo colaborativo</li>
-<li>🧩 Desarrollo socioemocional</li>
-</ul>
 </section>
 
 <section id="experiencias">
 <h2>🌎 Experiencias internacionales</h2>
-
 <div class="cards">
 <div class="card">
 <h3>🇨🇦 Classcraft</h3>
-<p>Aula convertida en juego de rol con avatares y misiones.</p>
+<p>Aula convertida en juego de rol.</p>
 </div>
-
-<div class="card">
-<h3>🇪🇸 España</h3>
-<p>Comunicación intercultural mediante retos culturales.</p>
-</div>
-
 <div class="card">
 <h3>🇫🇮 Finlandia</h3>
-<p>Plataformas por niveles con aprendizaje personalizado.</p>
-</div>
-
-<div class="card">
-<h3>🇲🇽 México</h3>
-<p>Gincanas de programación con estaciones de desafío.</p>
+<p>Aprendizaje personalizado por niveles.</p>
 </div>
 </div>
-
-</section>
-
-<section id="cambio">
-<h2>🔄 Cambio educativo</h2>
-<p>
-La escuela deja de ser un espacio rígido para convertirse en un laboratorio creativo donde se aprende jugando, reflexionando y colaborando.
-</p>
-<ul>
-<li>Docente transmisor → Mediador</li>
-<li>Alumno pasivo → Explorador</li>
-<li>Memorización → Comprensión</li>
-<li>Individualismo → Comunidad</li>
-</ul>
 </section>
 
 <section id="conclusiones">
 <h2>🏆 Conclusiones</h2>
-<p>
-La gamificación transforma la experiencia educativa en una travesía significativa donde el aprendizaje se convierte en aventura.
-</p>
-<p>
-El estudiante asume el rol de héroe de su propio conocimiento y el docente se convierte en guía del camino.
-</p>
-<p>
-El blog se consolida como un espacio de encuentro, reflexión y construcción colectiva del saber.
-</p>
+<p>La gamificación convierte el aprendizaje en una travesía significativa donde el estudiante es protagonista.</p>
+
+<h3>📢 Comparte este artículo</h3>
+<button>Facebook</button>
+<button>Twitter</button>
+<button>LinkedIn</button>
 </section>
 
-<section id="referencias">
-<h2>📚 Referencias</h2>
-<ul>
-<li>Batlle (2016)</li>
-<li>Boude & Ruiz (2009)</li>
-<li>Marrón (2018)</li>
-<li>Muñoz Rojas (2016)</li>
-<li>Sobrino Morrás (2014)</li>
-</ul>
+<section>
+<h2>📬 Suscríbete</h2>
+<input type="email" placeholder="Tu correo electrónico" style="padding:10px;border-radius:20px;border:none;width:60%;">
+<button>Suscribirme</button>
 </section>
+
+<section>
+<h2>💬 Comentarios</h2>
+<div class="card">
+<strong>Ana López</strong>
+<p>Excelente reflexión pedagógica.</p>
+</div>
+<textarea placeholder="Escribe tu comentario..." style="width:100%;padding:10px;border-radius:10px;margin-top:15px;"></textarea>
+<button>Publicar comentario</button>
+</section>
+
+</div>
+
+<aside>
+<h3>📂 Categorías</h3>
+<ul>
+<li>Gamificación</li>
+<li>Innovación</li>
+<li>ABP</li>
+</ul>
+
+<h3>🔥 Artículos recientes</h3>
+<ul>
+<li>Cómo motivar estudiantes digitales</li>
+<li>Evaluación creativa</li>
+</ul>
+
+<h3>🏷 Etiquetas</h3>
+<p>#Gamificación #EducaciónDigital #AprendizajeActivo</p>
+</aside>
 
 </main>
 
 <footer>
-<p>🚀 Blog académico interactivo - Gamificación y Educación</p>
+<h3>🚀 EduGame Blog</h3>
+<p>Innovación educativa • Gamificación • ABP • TIC</p>
+<p>© 2026 Gabriel Mejía</p>
 <button onclick="document.body.classList.toggle('dark')">🌙 Modo oscuro</button>
 </footer>
 
